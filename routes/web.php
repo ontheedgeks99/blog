@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/post', [PostController::class,'index']);
+Route::get('/post/{post}', [PostController::class,'show'])->where('post', '[0-9]+');
+Route::get('/post/create', [PostController::class,'create']);
+Route::post('/post', [PostController::class,'store']);
+Route::get('/post/{post}/edit', [PostController::class,'edit']);
+Route::patch('/post/{post}', [PostController::class,'update']);
+Route::delete('/post/{post}', [PostController::class,'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
