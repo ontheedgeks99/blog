@@ -10,7 +10,7 @@ Edit Post
         <a href="{{ url('/post') }}" class="header-menu">Back</a>
         Edit Post
     </h1>
-    <form action="{{ url('/post', $post->post_id) }}" method="post">
+    <form action="{{ url('/post', $post->id) }}" method="post">
         {{ csrf_field() }}
         {{ method_field('patch') }}
 

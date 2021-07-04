@@ -13,10 +13,10 @@ My Blog
     <ul>
     @forelse( $posts as $post)
         <li>
-            <a href="/post/{{ $post->post_id }}">{{ $post->title }}</a>
-            <a href="/post/{{ $post->post_id }}/edit" class="edit">[Edit]</a>
-            <a href="#" class="del" data-id="{{ $post->post_id }}">[✕]</a>
-            <form action="{{ url('/post', $post->post_id) }}" method="post" id="form_{{ $post->post_id }}">
+            <a href="/post/{{ $post->id }}">{{ $post->title }}</a>
+            <a href="/post/{{ $post->id }}/edit" class="edit">[Edit]</a>
+            <a href="#" class="del" data-id="{{ $post->id }}">[✕]</a>
+            <form action="{{ url('/post', $post->id) }}" method="post" id="form_{{ $post->id }}">
             {{ csrf_field() }}
             {{ method_field('delete') }}
             </form>

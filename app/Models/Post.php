@@ -14,12 +14,6 @@ class Post extends Model
      */
     protected $table = 'posts';
 
-    /**
-     * テーブルの主キー
-     *
-     * @var string
-     */
-    protected $primaryKey = 'post_id';
 
     /**
      * fillable設定
@@ -27,5 +21,9 @@ class Post extends Model
      * @var string
      */
     protected $fillable = ['user_id','title','content','category'];
+
+    public function comments() {
+        return $this->hasMany('App\Models\Comment');
+    }
 
 }

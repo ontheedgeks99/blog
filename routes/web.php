@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentsController;
 
 
 /*
@@ -26,6 +27,8 @@ Route::post('/post', [PostController::class,'store']);
 Route::get('/post/{post}/edit', [PostController::class,'edit']);
 Route::patch('/post/{post}', [PostController::class,'update']);
 Route::delete('/post/{post}', [PostController::class,'destroy']);
+Route::post('/post/{post}/comments', [CommentsController::class,'store']);
+Route::delete('/post/{post}/comments/{comment}', [CommentsController::class,'destroy']);
 
 Auth::routes();
 
