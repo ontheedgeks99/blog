@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id')->unique(); //デフォルトのidから変更
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->increments('profile_id');
             $table->integer('user_id')->index();
-            $table->string('title',100);
             $table->string('image');
-            $table->string('content');
-            $table->tinyInteger('status')->default(1);
-            // $table->integer('category');
+            $table->text('content');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('profiles');
     }
 }
