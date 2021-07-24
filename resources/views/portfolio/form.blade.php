@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title')
 New Portfolio
@@ -6,6 +6,8 @@ New Portfolio
 @endsection
 
 @section('content')
+
+<div class="container">
 
     <h2>
         <a href="{{ url('/portfolio') }}" class="header-menu">戻る</a>
@@ -59,6 +61,7 @@ New Portfolio
             <input type="submit" value="送信" name="subbtn" class="btn btn-primary btn-sm">
         </p>
     </form>
+</div>
 
     <!-- Quillエディタ -->
     <script>  

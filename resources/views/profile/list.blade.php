@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title')
 Profile
@@ -6,6 +6,7 @@ Profile
 @endsection
 
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h2>プロフィール一覧</h2>
@@ -53,6 +54,7 @@ Profile
             @endif
         </div>
     </div>
+</div>
     
     <script src="/js/main.js"></script>
 

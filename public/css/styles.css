@@ -43,11 +43,6 @@ input[type="text"], textarea {
     font-size: 12px;
 }
 
-h2 {
-    font-size: 14px;
-    padding-top: 25px;
-}
-
 .jumbotron {
     background-image: url(../storage/photos/mainvisual.png);
     background-size: cover;

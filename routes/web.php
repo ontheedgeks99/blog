@@ -28,36 +28,36 @@ Route::get('/index_other', [FrontBlogController::class,'index_other'])->name('fr
 
 Route::prefix('profile')->group(function() {
 
-Route::get('/index', [FrontBlogController::class,'profile'])->name('front_profile');
-Route::get('/', [AdminProfileController::class,'index'])->name('profile_index');
-Route::get('/form', [AdminProfileController::class,'form'])->name('profile_form');
-Route::post('/post', [AdminProfileController::class,'post'])->name('profile_post');
-Route::get('{profile?}/edit', [AdminProfileController::class,'edit'])->name('profile_edit');
-Route::patch('/{profile?}', [AdminProfileController::class,'update'])->name('profile_update');
-Route::delete('//{profile?}', [AdminProfileController::class,'delete'])->name('profile_delete');
+    Route::get('/index', [FrontBlogController::class,'profile'])->name('front_profile');
+    Route::get('/', [AdminProfileController::class,'index'])->name('profile_index')->middleware('auth');
+    Route::get('/form', [AdminProfileController::class,'form'])->name('profile_form')->middleware('auth');
+    Route::get('{profile?}/edit', [AdminProfileController::class,'edit'])->name('profile_edit')->middleware('auth');
+    Route::post('/post', [AdminProfileController::class,'post'])->name('profile_post');
+    Route::patch('/{profile?}', [AdminProfileController::class,'update'])->name('profile_update');
+    Route::delete('//{profile?}', [AdminProfileController::class,'delete'])->name('profile_delete');
 
 });
 
-Route::get('portfolio/form', [AdminPortfolioController::class,'form'])->name('portfolio_form');
-Route::post('portfolio/post', [AdminPortfolioController::class,'post'])->name('portfolio_post');
+Route::get('portfolio/form', [AdminPortfolioController::class,'form'])->name('portfolio_form')->middleware('auth');
 Route::get('portfolio/index', [FrontBlogController::class,'portfolio'])->name('front_portfolio');
+Route::post('portfolio/post', [AdminPortfolioController::class,'post'])->name('portfolio_post');
 
 Route::prefix('post')->group(function() {
     
-    Route::get('/list', [PostController::class,'index']);
+    Route::get('/list', [PostController::class,'index'])->middleware('auth');
     Route::get('/{post}', [PostController::class,'show'])->where('post', '[0-9]+');
-    Route::get('/create', [PostController::class,'create']);
+    Route::get('/create', [PostController::class,'create'])->middleware('auth');
     Route::post('/', [PostController::class,'store']);
-    Route::get('/{post}/edit', [PostController::class,'edit']);
+    Route::get('/{post}/edit', [PostController::class,'edit'])->middleware('auth');
     Route::patch('/{post}', [PostController::class,'update']);
     Route::delete('/{post}', [PostController::class,'destroy']);
     Route::post('/{post}/comments', [CommentsController::class,'store']);
     Route::delete('/{post}/comments/{comment}', [CommentsController::class,'destroy']);
 
-    Route::get('/category', [PostController::class,'category'])->name('post_category');
-    Route::get('/category/create', [PostController::class,'categoryCreate']);
+    Route::get('/category', [PostController::class,'category'])->name('post_category')->middleware('auth');
+    Route::get('/category/create', [PostController::class,'categoryCreate'])->middleware('auth');
     Route::post('/category', [PostController::class,'categoryStore']);
-    Route::get('/category/{category}/edit', [PostController::class,'editCategory'])->name('post_category_edit');
+    Route::get('/category/{category}/edit', [PostController::class,'editCategory'])->name('post_category_edit')->middleware('auth');
     Route::patch('/category/{category}', [PostController::class,'editUpdate'])->name('update_category_edit');
     Route::delete('/category/{category}', [PostController::class,'deleteCategory'])->name('post_category_delete');
 

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title')
 Edit Category
@@ -6,6 +6,7 @@ Edit Category
 @endsection
 
 @section('content')
+<div class="container">
     <h1>
         <a href="{{ url('/post/category') }}" class="header-menu">Back</a>
         Edit Category
@@ -31,5 +32,6 @@ Edit Category
             <input type="submit" value="Update">
         </p>
     </form>
+</div>
 
 @endsection

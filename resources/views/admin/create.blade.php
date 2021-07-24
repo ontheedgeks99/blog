@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title')
 New Post
@@ -6,6 +6,8 @@ New Post
 @endsection
 
 @section('content')
+
+<div class="container">
 
     <h2>
         <a href="{{ url('/post/list') }}" class="header-menu">戻る</a>
@@ -48,7 +50,7 @@ New Post
             <input type="submit" value="Add" name="subbtn" class="btn btn-primary btn-sm">
         </p>
     </form>
-
+</div>
 
     <!-- Quillエディタ -->
     <script>  

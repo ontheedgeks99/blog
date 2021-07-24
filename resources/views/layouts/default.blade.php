@@ -49,7 +49,7 @@
             <div class="row text-center">
                 <div class="col-12">
                     <div class="nav nav-fill nav-tabs flex-column flex-sm-row">
-                        <div class="col border-left border-right  global-navi p-0">
+                        <div class="col border-left global-navi p-0">
                             <a href="/profile/index" class="nav-link link">PROFILE</a>
                         </div>
                         <div class="col border-left border-right global-navi p-0">
@@ -76,7 +76,7 @@
                 @yield('content')
             </div>
 
-            <div class="col-md-4 pb-4">
+            <div class="col-md-4 pb-4 pl-4">
                 @include('posts.right_column')
             </div>
         </div>

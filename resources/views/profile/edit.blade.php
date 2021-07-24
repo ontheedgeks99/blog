@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title')
 New Profile
@@ -6,6 +6,8 @@ New Profile
 @endsection
 
 @section('content')
+
+<div class="container">
 
     <h2>
         <a href="{{ url('/profile') }}" class="header-menu">戻る</a>
@@ -48,7 +50,7 @@ New Profile
             <input type="submit" value="送信" name="subbtn" class="btn btn-primary btn-sm">
         </p>
     </form>
-
+</div>
 
     <!-- Quillエディタ -->
     <script>
