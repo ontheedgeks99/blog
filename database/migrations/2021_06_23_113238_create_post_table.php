@@ -14,12 +14,13 @@ class CreatePostTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('post_id'); //デフォルトのidから変更
+            $table->bigIncrements('id')->unique(); //デフォルトのidから変更
             $table->integer('user_id')->index();
             $table->string('title',100);
+            $table->string('image');
             $table->string('content');
             $table->tinyInteger('status')->default(1);
-            $table->integer('category');
+            // $table->integer('category');
             $table->timestamps();
         });
     }

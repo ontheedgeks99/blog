@@ -1,0 +1,82 @@
+/* body */
+.original {
+    font-family: Meiryo,"Hiragino Kaku Gothic ProN",Sans-Serif ;
+}
+
+.container{
+    width: 960px;
+}
+
+.link {
+    text-decoration: none;
+    color: #03363d;
+}
+
+h1 {
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+ul > li {
+    margin-bottom: 5px;
+}
+
+.header-menu{
+    margin:10px;
+    font-size: 1rem;
+    font-weight: normal;
+    float: right;
+}
+
+input[type="text"], textarea {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 5px;
+}
+
+.edit {
+    font-size: 12px;
+}
+
+.del {
+    font-size: 12px;
+}
+
+.jumbotron {
+    background-image: url(../storage/photos/mainvisual.png);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.card-header-text{
+    background-image: url(../storage/photos/arrow.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    margin: 0px;
+}
+.arrow {
+    background-image: url(../storage/photos/arrow.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    margin: 0px;
+}
+
+/* right_column */
+.right_column {
+    margin-bottom: 1rem;
+}
+.profile_img{
+    width: 140px;
+    height: 140px;
+}
+
+/* プロフィール */
+
+.global-navi .nav-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 5px;
+}
