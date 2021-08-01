@@ -11,64 +11,62 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- <link rel="stylesheet"
-          href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
-    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script> -->
-
-    <script src="/js/highlight.js"></script>
-    <link rel="stylesheet" href="/css/monokai-sublime.min.css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
-
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/monokai-sublime.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css">
     
     
 </head>
 <body class="original">
-
-    <header class="border-bottom">
+    
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
         <div class="container">
-            <div class="row mt-4 mb-4">
-                <div class="col">
-                    <a href="/">
-                        <img src="../storage/photos/logo.png" alt="Tech Assist" width="190px" height="30px">
-                    </a>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-12">
-                    <div class="nav nav-fill nav-tabs flex-column flex-sm-row">
-                        <div class="col border-left global-navi p-0">
-                            <a href="/profile/index" class="nav-link link">PROFILE</a>
+            <a class="navbar-brand text-white" href="{{ url('/') }}">
+                <img src="../storage/photos/logo.png" alt="Tech Assist" width="180px" height="25px">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            menu
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">
+                            <div class="col border-left border-right border-bottom global-navi p-0">
+                                <a href="/profile/index" class="nav-link link">PROFILE</a>
+                            </div>
+                            <div class="col border-left border-right global-navi p-0">
+                                <a href="/portfolio/index" class="nav-link link">PORTFOLIO</a>
+                            </div>
                         </div>
-                        <div class="col border-left border-right global-navi p-0">
-                            <a href="/portfolio/index" class="nav-link link">PORTFOLIO</a>
-                        </div>
-                    </div>   
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </nav>
 
     <div class="jumbotron jumbotron-fluid bg-primary">
         <div class="container">
-            <h1>
-             <a href="/" class="text-white">BOOK & TECH LIFE in YOKOHAMA</a>
-            </h1>
-            <p class="jumbotron_description text-white">横浜での読書好きエンジニアによる活動記録。</p>
+            <h2>
+             <a href="{{ url('/') }}" class="text-white text-bold" style="font-weight: bold;">BOOK & TECH LIFE in YOKOHAMA</a>
+            </h2>
+            <p class="jumbotron_description text-white text-bold" style="font-weight: bold;" >読書好き駆け出しエンジニアによる活動記録。</p>
         </div>
     </div>
+
 
     <div class="container">
         <div class="row">

@@ -37,12 +37,9 @@ New Profile
         {{ csrf_field() }}
         {{ method_field('patch') }}
         <p>
-            <textarea name="body" class="form-control" rows="15" placeholder="enter title" >{{ old('content',$profile->content) }}</textarea>
-        </p>
-        <!-- <p>
             <div id="editor" style="height: 200px;"></div>
             <input type="hidden" name="body">
-        </p> -->
+        </p>
         <p>
             プロフィール写真：<input type="file" name="image">
         </p>
@@ -108,14 +105,14 @@ New Profile
                 ['formula'],
                 //URLリンク
                 ['link'],
-                ['code-block']
+                ['blockquote','code-block']
                 ]
             }
         });
         // 回答フォームを送信
         document.ansform.subbtn.addEventListener('click', function() {
         // Quillのデータをinputに代入
-        document.querySelector('input[name=content]').value = document.querySelector('.ql-editor').innerHTML;
+        document.querySelector('input[name=body]').value = document.querySelector('.ql-editor').innerHTML;
         // 送信
         document.ansform.submit();
         });

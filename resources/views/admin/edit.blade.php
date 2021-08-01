@@ -13,7 +13,7 @@ Edit Post
             Edit Post
         </h2>
         
-        <form action="{{ url('/post', $post->id) }}" method="post" class="form-group">
+        <form action="{{ url('/post', $post->id) }}" name="ansform" method="post" class="form-group">
             {{ csrf_field() }}
             {{ method_field('patch') }}
 
@@ -24,20 +24,24 @@ Edit Post
                 @endif
             </p>
             <p>
-                <textarea name="content" class="form-control" rows="15" placeholder="enter title" >{{ old('content',$post->content) }}</textarea>
-                @if ($errors->has('content'))
-                <span class="error">{{ $errors->first('content') }}</span>
+                <select name="category" class="form-control" id="category">
+                    @foreach ( $category as $value )
+                        <option value="{{ $value -> category_id }}">{{ $value -> name }}</option>
+                    @endforeach
+                </select>
+                @if ($errors->has('category_id'))
+                <span class="error">{{ $errors->first('category_id') }}</span>
                 @endif
             </p>
-            <!-- <p>
+            <p>
                 <div id="editor" style="height: 200px;"></div>
                 <input type="hidden" name="content">
                 @if ($errors->has('content'))
                 <span class="error">{{ $errors->first('content') }}</span>
                 @endif
-            </p> -->
+            </p>
             <p>
-                <input type="submit" value="更新" class="btn btn-primary btn-sm">
+                <input type="submit" value="更新" name="subbtn" class="btn btn-primary btn-sm">
             </p>
         </form>
 </div>

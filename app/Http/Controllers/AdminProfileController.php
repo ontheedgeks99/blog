@@ -43,6 +43,7 @@ class AdminProfileController extends Controller
 
         $this->profile->content = $request->body;
         $this->profile->image = $filename;
+        $this->profile->user_id = 1;
         $this->profile->save();
 
         return redirect()->route('profile_form')->with('message','プロフィールを保存しました');

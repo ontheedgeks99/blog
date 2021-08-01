@@ -39,7 +39,6 @@ New Post
             @endif
         </p>
         <p>
-            <!-- <textarea name="content" placeholder="enter title" >{{ old('content') }}</textarea> -->
             <div id="editor" style="height: 200px;"></div>
             <input type="hidden" name="content">
             @if ($errors->has('content'))

@@ -10,7 +10,7 @@
 <title>@yield('title')</title>
 
 <!-- Scripts -->
-<!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 <!-- Fonts -->
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,10 +19,6 @@
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
 <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-<!-- <script src="/js/highlight.js"></script>
-<link rel="stylesheet" href="/css/monokai.min.css">
-<script>hljs.initHighlightingOnLoad();</script> -->
 
 
 <!-- Styles -->
@@ -33,7 +29,7 @@
 
     
 </head>
-<body>
+<body class="original">
 
     <div class="container">
         @yield('content')

@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Comment;
 use App\Models\Category;
+use App\Models\Profile;
+use App\Models\Portfolio;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -16,27 +17,27 @@ class PostController extends Controller
     // 1ページあたりの表示件数
     const NUM_PER_PAGE = 10;
 
-
-    public function index(Request $request)
+    function __construct(Post $post, Category $category, Profile $profile, Portfolio $portfolio)
     {
-        $post = new Post();
+        $this->post = $post;
+        $this->category = $category;
+        $this->profile = $profile;
+        $this->portfolio = $portfolio;
+    }
+
+
+    public function index(Request $request, Post $post)
+    {
 
         //新しいものから取得
-        $posts = $post->latest()->get();
+        $posts = $this->post->latest()->get();
 
         return view('admin.list', ['posts' => $posts]);
     }
 
-    public function show(Post $post)
-    {
-        // $post = Post::findOrFail($id);
-        return view('admin.show', ['post' => $post]);
-    }
+    public function create(Category $category){
 
-    public function create(){
-
-        $category = new Category();
-        $category = $category->getCategoryList();
+        $category = $this->category->getCategoryList();
 
         return view('admin.create', ['category' => $category]);
     }
@@ -44,7 +45,7 @@ class PostController extends Controller
     /**
      * 記事の保存
      */
-    public function store(PostRequest $request){
+    public function store(PostRequest $request, Post $post){
 
         $filename = '';
         $image = $request->file('image');
@@ -57,26 +58,31 @@ class PostController extends Controller
             $path = $image->storeAs('photos', $filename, 'public');
         }
 
-        $post = new Post();
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->image = $filename;
-        $post->category_id = $request->category;
-        $post->user_id = 1;
-        $post->save();
+        $this->post->title = $request->title;
+        $this->post->content = $request->content;
+        $this->post->image = $filename;
+        $this->post->category_id = $request->category;
+        $this->post->user_id = 1;
+        $this->post->save();
+
         return redirect('/post/list');
     }
 
-    public function edit(Post $post){
-        return view('admin.edit', ['post' => $post]);
+    public function edit(Post $post, Category $category){
+
+        $category = $this->category->getCategoryList();
+
+        return view('admin.edit', ['post' => $post, 'category' => $category]);
     }
 
     public function update(PostRequest $request, Post $post){
 
         $post->title = $request->title;
         $post->content = $request->content;
+        $post->category_id = $request->category;
         $post->user_id = 1;
         $post->save();
+
         return redirect('/post/list');
     }
 
@@ -90,12 +96,11 @@ class PostController extends Controller
      * 
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function category()
+    public function category(Category $category)
     {
 
-        $category = new Category();
+        $category = $this->category->getCategoryList(self::NUM_PER_PAGE);
 
-        $category = $category->getCategoryList(self::NUM_PER_PAGE);
         return view('categories.category', ['category' => $category]);
     }
 
@@ -106,12 +111,12 @@ class PostController extends Controller
     /**
      * カテゴリ新規作成API
      */
-    public function categoryStore(PostRequest $request){
+    public function categoryStore(PostRequest $request, Category $category){
 
-        $category = new Category();
-        $category->name = $request->name;
-        $category->display_order = $request->display_order;
-        $category->save();
+        $this->category->name = $request->name;
+        $this->category->display_order = $request->display_order;
+        $this->category->save();
+        
         return redirect('/post/category');
     }
 

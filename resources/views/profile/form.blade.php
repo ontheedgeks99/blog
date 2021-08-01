@@ -104,7 +104,7 @@ New Profile
                 ['formula'],
                 //URLリンク
                 ['link'],
-                ['code-block']
+                ['blockquote','code-block']
                 ]
             }
         });

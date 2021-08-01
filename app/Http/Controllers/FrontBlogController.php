@@ -17,7 +17,7 @@ class FrontBlogController extends Controller
     protected $category;
     protected $profile;
     
-    const NUM_PER_PAGE = 3;
+    const NUM_PER_PAGE = 2;
 
     function __construct(Post $post, Category $category, Profile $profile, Portfolio $portfolio)
     {
@@ -48,7 +48,7 @@ class FrontBlogController extends Controller
         $category_list = $this->category->getCategoryList();
 
         // プロフィール一覧を取得
-        $profile_list = $this->profile->getProfileList(2);
+        $profile_list = $this->profile->getProfileList(1);
 
         // ポートフォリオ一覧を取得
         $portfolio_list = $this->portfolio->get();
@@ -101,7 +101,7 @@ class FrontBlogController extends Controller
         $category_list = $this->category->getCategoryList();
 
         // プロフィール一覧を取得
-        $profile_list = $this->profile->getProfileList(2);
+        $profile_list = $this->profile->getProfileList(1);
 
         // ポートフォリオ一覧を取得
         $portfolio_list = $this->portfolio->get();
@@ -132,7 +132,7 @@ class FrontBlogController extends Controller
         $category_list = $this->category->getCategoryList();
 
         // プロフィール一覧を取得
-        $profile_list = $this->profile->getProfileList(2);
+        $profile_list = $this->profile->getProfileList(1);
 
         // ポートフォリオ一覧を取得
         $portfolio_list = $this->portfolio->get();
@@ -163,7 +163,7 @@ class FrontBlogController extends Controller
         $category_list = $this->category->getCategoryList();
 
         // プロフィール一覧を取得
-        $profile_list = $this->profile->getProfileList(2);
+        $profile_list = $this->profile->getProfileList(1);
 
         // ポートフォリオ一覧を取得
         $portfolio_list = $this->portfolio->get();

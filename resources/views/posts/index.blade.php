@@ -1,14 +1,13 @@
 @extends('layouts.default')
 
 @section('title')
-My Blog
+Assist Hon
 
 @endsection
 
 @section('content')
 
         @forelse($posts as $post)
-            <div class="col-md-12">
                 <div class="col-md-12 arrow">
                     &nbsp;{{ $post->created_at->format('Y年m月d日') }}
                 </div>
@@ -27,7 +26,6 @@ My Blog
                     </div>
                 </div>
                 <p></p>
-            </div>
         @empty
             <p>記事がありません</p>
         @endforelse

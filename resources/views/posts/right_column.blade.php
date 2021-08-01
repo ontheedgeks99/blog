@@ -58,8 +58,8 @@
                         Koya Sawaguchi
                     </p>
                     <p class="text-left">
-                        名古屋のフリーランスエンジニア。Java、PHP、MySQL、Oracleあたりを使ったWeb系開発が主戦場です。<br>
-                        テックアシストという屋号でソフトウェア開発を行っております。
+                        横浜の読書好き。PHP、javascript、MySQLあたりを使ったWeb系開発を勉強中です。<br>
+                        読書はもっぱらノンフィクションを好んで読みます。サイエンスが一番の好み。
                     </p>
                     <div class="arrow">
                         <a href="/profile/index" class="link">

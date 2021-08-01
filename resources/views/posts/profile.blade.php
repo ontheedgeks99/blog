@@ -1,14 +1,13 @@
 @extends('layouts.default')
 
 @section('title')
-My Blog
+Assist Hon
 
 @endsection
 
 @section('content')
 
     @forelse($profile_list as $profile)
-        <div class="col-md-12">
             <div class="col-md-12">
                 <h2>PROFILE</h2>
             </div>
@@ -20,7 +19,6 @@ My Blog
                 </div>
             </div>
             <p></p>
-        </div>
     @empty
         <p>プロフィールがありません</p>
     @endforelse
